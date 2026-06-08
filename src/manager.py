@@ -63,6 +63,14 @@ class Manager:
         Raises:
             ValueError: Jeśli apartment_key nie istnieje w bazie
 
+        Example:
+        -------
+        >>> manager = Manager()
+        >>> manager.load_data()
+        >>> #raport tylko z nirozwiazanymi problemami
+        >>> manager.generate_apartment_events_report("apart-polanka", only_unsolved=True)
+        >>> [ApartmentEvent("apartment": "apart-polanka","date": "2024-06-20","description": "Konieczność sprawdzenia instalacji elektrycznej")]
+
         """
         if apartment_key not in self.apartments:
             raise ValueError("Apartment key does not exist")
