@@ -44,11 +44,10 @@ def run_analysis(data):
         "High": {"sum": 0, "count": 0},
     }
 
-    for i in range(len(data) - 1):
-        val = data[i]
+    for val in data:
         category = classify_voltage(val)
 
-        results[category]["sum"] = val
+        results[category]["sum"] += val
         results[category]["count"] += 1
 
         results["All"]["sum"] += val
